@@ -15,3 +15,6 @@ Note: You must activate the virtual environment every time you open the command 
 - cd roupa_solidaria
 - py manage.py runserver
 - access http://127.0.0.1:8000/ and see "The install worked successfully! Congratulations!"
+- python manage.py startapp api
+- pip install djangorestframework
+- python manage.py migrate     
