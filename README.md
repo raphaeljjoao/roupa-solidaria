@@ -28,7 +28,7 @@ Este repositório contém o código para o frontend e o backend do sistema Roupa
    pip install -r api/requirements.txt
    ```
 
-4. Certifique-se de que o arquivo **.env** está presente na pasta `api/roupa_solidaria/roupa_solidaria/`. O arquivo `.env` deve ser obtido com o administrador do projeto.
+4. Certifique-se de que o arquivo **.env** está presente na pasta `api/roupa_solidaria/`. O arquivo `.env` deve ser obtido com o administrador do projeto.
 
 5. Execute as migrações:
    ```bash
