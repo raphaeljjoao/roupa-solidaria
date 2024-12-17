@@ -17,7 +17,4 @@ Note: You must activate the virtual environment every time you open the command 
 - access http://127.0.0.1:8000/ and see "The install worked successfully! Congratulations!"
 - python manage.py startapp api
 - pip install djangorestframework
-- python manage.py migrate     
-- python manage.py startapp base
-- python manage.py makemigrations
 - python manage.py migrate
