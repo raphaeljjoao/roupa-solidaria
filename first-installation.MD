@@ -18,3 +18,6 @@ Note: You must activate the virtual environment every time you open the command 
 - python manage.py startapp api
 - pip install djangorestframework
 - python manage.py migrate     
+- python manage.py startapp base
+- python manage.py makemigrations
+- python manage.py migrate
