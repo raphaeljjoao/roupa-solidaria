@@ -19,8 +19,8 @@ Este repositório contém o código para o frontend e o backend do sistema Roupa
 
 2. Crie e ative o ambiente virtual:
    ```bash
-   python3 -m venv api
-   source api/bin/activate
+   python3 -m venv apienv
+   source apienv/bin/activate
    ```
 
 3. Instale as dependências:
@@ -28,38 +28,28 @@ Este repositório contém o código para o frontend e o backend do sistema Roupa
    pip install -r api/requirements.txt
    ```
 
-4. Acesse a pasta do projeto `api/roupa_solidaria`:
+4. Certifique-se de que o arquivo **.env** está presente na pasta `api/roupa_solidaria/roupa_solidaria/`. O arquivo `.env` deve ser obtido com o administrador do projeto.
+
+5. Execute as migrações:
    ```bash
-   cd api/roupa_solidaria
+   python3 api/manage.py migrate
    ```
 
-5. Certifique-se de que o arquivo **.env** está presente na pasta `api/roupa_solidaria/roupa_solidaria/`. O arquivo `.env` deve ser obtido com o administrador do projeto.
-
-6. Execute as migrações:
+6. Rode o servidor:
    ```bash
-   python3 manage.py migrate
-   ```
-
-7. Rode o servidor:
-   ```bash
-   python3 manage.py runserver
+   python3 api/manage.py runserver
    ```
 
 ### Instruções para Execução do Backend
 
 1. Ative o ambiente virtual:
    ```bash
-   source api/bin/activate
+   source apienv/bin/activate
    ```
 
-2. Acesse a pasta do projeto `api/roupa_solidaria`:
+2. Rode o servidor:
    ```bash
-   cd api/roupa_solidaria
-   ```
-
-3. Rode o servidor novamente:
-   ```bash
-   python3 manage.py runserver
+   python3 api/manage.py runserver
    ```
 
 ## Acessando o Frontend e Backend
