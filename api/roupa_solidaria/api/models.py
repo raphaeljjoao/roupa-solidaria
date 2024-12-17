@@ -8,8 +8,8 @@ class BaseModel(models.Model):
         abstract = True
 class User(BaseModel):
     id = models.AutoField(primary_key=True)
-    nome = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
     email = models.EmailField(max_length=255)
     cpf = models.CharField(max_length=14)
-    endereco = models.TextField()
-    preferencias = models.JSONField()
+    address = models.TextField()
+    preferences = models.JSONField()
