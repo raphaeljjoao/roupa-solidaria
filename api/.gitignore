@@ -1,12 +1,5 @@
-# Created by venv; see https://docs.python.org/3/library/venv.html
-*
-
-!.gitignore
-# Don't ignore the "roupa_solidaria" folder and its contents
-!roupa_solidaria/
-
-# Don't ignore the contents inside "roupa_solidaria"
-!roupa_solidaria/**/*
-
-roupa_solidaria/roupa_solidaria/__pycache__
-roupa_solidaria/db.sqlite3
+/bin
+/include
+/lib
+*sqlite3
+**/__pycache__
