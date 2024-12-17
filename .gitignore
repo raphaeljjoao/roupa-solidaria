@@ -1,0 +1,19 @@
+# Ignore Python bytecode files
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore virtual environment directories
+api/bin/
+api/include/
+api/lib/
+
+# Ignore environment files
+*.env
+
+# Ignore logs and database files
+*.log
+*DS_Store
+
+
