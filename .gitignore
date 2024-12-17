@@ -17,4 +17,6 @@ api/pyvenv.cfg
 *.log
 *DS_Store
 
+**/.vscode
+
 

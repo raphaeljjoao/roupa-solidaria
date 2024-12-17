@@ -64,6 +64,6 @@ Este repositório contém o código para o frontend e o backend do sistema Roupa
 
 ## Acessando o Frontend e Backend
 
-- O **frontend** estará disponível [...]
+- O **frontend** estará disponível em `http://localhost:4200/` após iniciar o servidor Angular com o comando `ng serve`.
   
 - O **backend** estará acessível em `http://127.0.0.1:8000/` após iniciar o servidor Django.
