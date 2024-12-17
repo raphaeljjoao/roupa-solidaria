@@ -8,6 +8,7 @@
 api/bin/
 api/include/
 api/lib/
+api/pyvenv.cfg
 
 # Ignore environment files
 *.env
