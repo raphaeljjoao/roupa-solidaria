@@ -1,6 +1,5 @@
 /bin
 /include
 /lib
-*sqlite3
 **/__pycache__
 .env
