@@ -25,10 +25,7 @@ Este repositório contém o código para o frontend e o backend do sistema Roupa
 
 3. Instale as dependências:
    ```bash
-   pip install django
-   pip install django-environ
-   pip install djangorestframework
-   pip install psycopg2
+   pip install -r requirements.txt
    ```
 
 4. Acesse a pasta do projeto `api/roupa_solidaria`:
