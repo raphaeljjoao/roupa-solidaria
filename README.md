@@ -25,7 +25,7 @@ Este repositório contém o código para o frontend e o backend do sistema Roupa
 
 3. Instale as dependências:
    ```bash
-   pip install -r requirements.txt
+   pip install -r api/requirements.txt
    ```
 
 4. Acesse a pasta do projeto `api/roupa_solidaria`:
