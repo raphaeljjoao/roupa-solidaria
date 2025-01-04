@@ -1,3 +1,3 @@
 from .test import *
-from .register import *
+from .user import *
 from .clothing import *

@@ -4,7 +4,7 @@ from rest_framework import status
 from api.models import User
 
 
-class RegisterView(APIView):
+class UserView(APIView):
 
     def get(self, request):
         users = User.objects.all()
