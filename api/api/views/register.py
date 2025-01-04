@@ -5,8 +5,26 @@ from api.models import User
 
 
 class RegisterView(APIView):
-    def post(self, request):
 
+    def get(self, request):
+        users = User.objects.all()
+
+        user_data = [
+            {
+                "username": user.username,
+                "email": user.email,
+                "cpf": user.cpf,
+                "first_name": user.first_name,
+                "last_name": user.last_name,
+                "address": user.address,
+                "preferences": user.preferences
+            }
+            for user in users
+        ]
+
+        return Response(data=user_data, status=status.HTTP_200_OK)
+
+    def post(self, request):
         data = request.data
         try:
             user = {
@@ -19,20 +37,34 @@ class RegisterView(APIView):
                 "address": data.get('address', ''),
                 "preferences": data.get('preferences', {})
             }
-        except:
-            return Response(data=None, status=status.HTTP_400_BAD_REQUEST)
-        
+        except KeyError as e:
+            return Response({"detail": f"Campo {e.args[0]} é obrigatório"}, status=status.HTTP_400_BAD_REQUEST)
+
         if User.objects.filter(username=user['username']).exists() or User.objects.filter(email=user['email']).exists():
-            return Response(data=None, status=status.HTTP_400_BAD_REQUEST)
-        
-        created_user = {
-            "username": user['username'],
-            "email": user['email'],
-            "cpf": user['cpf'],
-            "first_name": user['first_name'],
-            "last_name": user['last_name'],
-            "address": user['address'],
-            "preferences": user['preferences']
+            return Response({"detail": "Usuário ou e-mail já existe."}, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            created_user = User.objects.create_user(
+                username=user['username'],
+                email=user['email'],
+                password=user['password'],
+                cpf=user['cpf'],
+                first_name=user['first_name'],
+                last_name=user['last_name'],
+                address=user['address'],
+                preferences=user['preferences']
+            )
+        except ValidationError as e:
+            return Response({"detail": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
+        user_data = {
+            "username": created_user.username,
+            "email": created_user.email,
+            "cpf": created_user.cpf,
+            "first_name": created_user.first_name,
+            "last_name": created_user.last_name,
+            "address": created_user.address,
+            "preferences": created_user.preferences
         }
 
-        return Response(data=created_user, status=status.HTTP_201_CREATED)
+        return Response(data=user_data, status=status.HTTP_201_CREATED)
