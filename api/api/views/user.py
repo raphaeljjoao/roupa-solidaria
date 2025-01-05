@@ -8,7 +8,6 @@ class UserView(APIView):
 
     def get(self, request, id):
         user_id = id
-        print(user_id)
 
         if user_id:
             try:
@@ -17,8 +16,6 @@ class UserView(APIView):
                 return Response(data={"detail": "User not found."}, status=status.HTTP_404_NOT_FOUND)
         else:
             users = User.objects.all()
-
-        # print(users)
 
         user_data = [
             {
