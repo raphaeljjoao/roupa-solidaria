@@ -14,6 +14,6 @@ export class LoginService {
   ) { }
 
   getUser(id: number): Observable<any> {
-    return this.http.get(`${Environment.url}/user/${id}`);
+    return this.http.get(Environment.url +  `user/${id}/`);
   }
 }
