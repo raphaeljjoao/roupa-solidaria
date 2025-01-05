@@ -6,11 +6,23 @@ from api.models import User
 
 class UserView(APIView):
 
-    def get(self, request):
-        users = User.objects.all()
+    def get(self, request, id):
+        user_id = id
+        print(user_id)
+
+        if user_id:
+            try:
+                users = User.objects.filter(id=user_id)
+            except User.DoesNotExist:
+                return Response(data={"detail": "User not found."}, status=status.HTTP_404_NOT_FOUND)
+        else:
+            users = User.objects.all()
+
+        # print(users)
 
         user_data = [
             {
+                "id": user.id,
                 "username": user.username,
                 "email": user.email,
                 "cpf": user.cpf,
@@ -23,6 +35,7 @@ class UserView(APIView):
         ]
 
         return Response(data=user_data, status=status.HTTP_200_OK)
+
 
     def post(self, request):
         data = request.data
