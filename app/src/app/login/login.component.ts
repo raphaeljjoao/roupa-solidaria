@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { LoginService } from '../service/login.service';
-import { HttpClientModule } from '@angular/common/http';
+import { LoginService } from '../../service/login.service';
 
 @Component({
   selector: 'app-login',
@@ -14,8 +13,8 @@ export class LoginComponent {
   ) {}
 
   public getBaseUser() {
-    this.loginService.getUser(7).subscribe((data) => {
-      console.log(data);
+    this.loginService.getUser(7).subscribe((user) => {
+      console.log(user);
     });
   }
 
