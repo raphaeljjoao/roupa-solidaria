@@ -31,6 +31,9 @@ class UserView(APIView):
             for user in users
         ]
 
+        if len(user_data) == 1:
+            user_data = user_data[0]
+
         return Response(data=user_data, status=status.HTTP_200_OK)
 
 
