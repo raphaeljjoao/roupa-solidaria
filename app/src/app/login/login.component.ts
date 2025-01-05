@@ -18,6 +18,7 @@ export class LoginComponent {
   ) {}
 
   public getBaseUser() {
+    this.notificationService.showInfo('Buscando usuário base...');
     this.loginService.getUser(8).subscribe((u) => {
       const user: User = u;
       this.localStorageService.login(user);
