@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import url('./reset.scss');
+@import url('./scss/reset.scss');
+@import url('./scss/snackbar.styles.scss');
 
 * {
   font-family: sans-serif;
