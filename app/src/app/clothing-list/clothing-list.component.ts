@@ -4,6 +4,7 @@ import { ClothingItem } from '../../models/ClothingItem';
 import { ClothingItemService } from '../../service/clothing-item.service';
 import { CommonModule } from '@angular/common';
 import { ClothingItemComponent } from '../shared/clothing-item/clothing-item.component';
+import { NotificationService } from '../../service/notification-service.service';
 
 @Component({
   selector: 'app-clothing-list',
@@ -14,12 +15,14 @@ import { ClothingItemComponent } from '../shared/clothing-item/clothing-item.com
 export class ClothingListComponent {
 
   constructor(
-    private clothingItemService: ClothingItemService
+    private clothingItemService: ClothingItemService,
+    private notificationService: NotificationService
   ) {}
 
   clothingItems: ClothingItem[] = [];
 
   ngOnInit(): void {
+    this.notificationService.showInfo('Carregando roupas...');
     this.clothingItemService.getClothingItems().subscribe((items) => {
       this.clothingItems = items.concat(items, items, items, items);
     });
