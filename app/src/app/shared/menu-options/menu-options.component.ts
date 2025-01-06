@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { LocalStorageService } from '../../../service/local-storage.service';
 import { Router } from '@angular/router';
 import { NotificationService } from '../../../service/notification-service.service';
+import { LoginService } from '../../../service/login.service';
 
 @Component({
   selector: 'app-menu-options',
@@ -12,14 +13,12 @@ import { NotificationService } from '../../../service/notification-service.servi
 export class MenuOptionsComponent {
 
   constructor(
-    private localStorageService: LocalStorageService,
+    private loginService: LoginService,
     private notificationService: NotificationService,
-    private router: Router
   ) { }
 
   logout() {
-    this.localStorageService.logout();
-    this.router.navigate(['/']);
+    this.loginService.logout();
     this.notificationService.showSuccess('Usuário deslogado com sucesso!');
   }
 
