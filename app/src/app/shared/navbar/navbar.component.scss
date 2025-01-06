@@ -39,7 +39,12 @@
 }
 
 .user-icon {
+  position: relative;
+  cursor: pointer;
+}
+
+.user-icon i {
   font-size: 24px;
   color: white;
-  cursor: pointer;
+
 }

@@ -4,6 +4,9 @@
   </div>
   <div class="search-container">
     <input type="text" class="search" placeholder="Buscar...">
-    <div class="user-icon"><i class="fas fa-user"></i></div>
+    <div class="user-icon" (click)="toggleMenu()">
+      <i class="fas fa-user"></i>
+      <app-menu-options *ngIf="showMenu"></app-menu-options>
+    </div>
   </div>
 </nav>
