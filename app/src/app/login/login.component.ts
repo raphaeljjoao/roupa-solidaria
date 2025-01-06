@@ -3,6 +3,7 @@ import { LoginService } from '../../service/login.service';
 import { User } from '../../models/User';
 import { LocalStorageService } from '../../service/local-storage.service';
 import { NotificationService } from '../../service/notification-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginComponent {
   constructor(
     private loginService: LoginService,
     private localStorageService: LocalStorageService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private router: Router
   ) {}
 
   public getBaseUser() {
@@ -23,6 +25,10 @@ export class LoginComponent {
       const user: User = u;
       this.localStorageService.login(user);
       this.notificationService.showSuccess(`Logado com sucesso como o usuário ${user.username}`);
+
+      setTimeout(() => {
+        this.router.navigate(['/list']);
+      }, 500);
     });
   }
 
