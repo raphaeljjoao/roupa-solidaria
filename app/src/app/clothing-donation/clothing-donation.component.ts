@@ -10,4 +10,12 @@ import { NavbarComponent } from '../shared/navbar/navbar.component';
 })
 export class ClothingDonationComponent {
 
+  onFileChange(event: Event) {
+
+  }
+
+  submitForm() {
+
+  }
+
 }
