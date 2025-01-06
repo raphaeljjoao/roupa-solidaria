@@ -5,6 +5,7 @@ import { ClothingItemService } from '../../service/clothing-item.service';
 import { CommonModule } from '@angular/common';
 import { ClothingItemComponent } from '../shared/clothing-item/clothing-item.component';
 import { NotificationService } from '../../service/notification-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-clothing-list',
@@ -16,7 +17,8 @@ export class ClothingListComponent {
 
   constructor(
     private clothingItemService: ClothingItemService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private router: Router
   ) {}
 
   clothingItems: ClothingItem[] = [];
@@ -26,6 +28,10 @@ export class ClothingListComponent {
     this.clothingItemService.getClothingItems().subscribe((items) => {
       this.clothingItems = items.concat(items, items, items, items);
     });
+  }
+
+  goToDonate() {
+    this.router.navigate(['donate']);
   }
 
 }

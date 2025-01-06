@@ -1,0 +1,13 @@
+.container {
+  background-image: url('/waves.jpg');
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.inner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  padding: 0 20px;
+}
