@@ -10,16 +10,13 @@
       </div>
 
       <div id="list">
-        <!-- <app-clothing-item *ngFor="let clothingItem of clothingItems" [clothingItem]="clothingItem"></app-clothing-item> -->
+        <app-clothing-item *ngFor="let clothingItem of clothingItems" [clothingItem]="clothingItem"></app-clothing-item>
       </div>
 
-      <!-- <div *ngIf="clothingItems.length == 0" class="message">
-        Não há itens disponíveis
-      </div> -->
-
-      <div class="message">
+      <div *ngIf="clothingItems.length == 0" class="message">
         Não há itens disponíveis
       </div>
+
     </div>
   </div>
 </div>
