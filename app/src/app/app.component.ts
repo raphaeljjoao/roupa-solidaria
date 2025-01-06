@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { NavbarComponent } from './shared/navbar/navbar.component';
+import { Router, RouterOutlet } from '@angular/router';
+import { LocalStorageService } from '../service/local-storage.service';
 
 @Component({
   selector: 'app-root',
@@ -10,4 +10,17 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 })
 export class AppComponent {
   title = 'RoupaSolidária';
+
+  constructor(
+    private localStorage: LocalStorageService,
+    private router: Router
+  ) {}
+
+  ngOnInit() {
+    const loggedUser = this.localStorage.getLoggedUserId();
+    if (loggedUser == null) {
+      this.router.navigate(['/login']);
+    }
+  }
+
 }
