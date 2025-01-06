@@ -1,0 +1,80 @@
+:host {
+  display: block;
+}
+
+.container {
+  background-image: url('bg.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  padding-top: 80px;
+}
+
+.clothing-list {
+  background-color: white;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.donate-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.donate-button:hover {
+  background-color: #0056b3;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+}
+
+.filter-input {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-left: 10px;
+}
+
+.message {
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 18px;
+  color: #333;
+  margin-top: 20px;
+}
+
+#list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+app-clothing-item {
+  flex: 1 1 calc(33.33% - 20px);
+  box-sizing: border-box;
+}

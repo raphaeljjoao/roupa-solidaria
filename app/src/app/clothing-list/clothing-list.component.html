@@ -1,1 +1,20 @@
-<p>clothing-list works!</p>
+<app-navbar></app-navbar>
+
+<div class="container">
+  <div class="clothing-list">
+    <div class="header">
+      <button class="donate-button">Doar Roupa</button>
+      <div class="filter">
+        <input type="text" placeholder="Filtrar..." class="filter-input" />
+      </div>
+    </div>
+
+    <div id="list">
+      <app-clothing-item *ngFor="let clothingItem of clothingItems" [clothingItem]="clothingItem"></app-clothing-item>
+    </div>
+
+    <div *ngIf="clothingItems.length == 0" class="message">
+      Não há itens disponíveis
+    </div>
+  </div>
+</div>
