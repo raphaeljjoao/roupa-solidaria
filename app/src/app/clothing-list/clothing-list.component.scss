@@ -1,80 +1,74 @@
-:host {
-  display: block;
-}
-
 .container {
   background-image: url('bg.jpg');
   background-size: cover;
-  background-position: center;
-  height: 100vh;
-  padding-top: 80px;
+  min-height: 100vh;
+}
+
+.inner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
 }
 
 .clothing-list {
+  min-width: 90vw;
   background-color: white;
+  padding: 20px;
+  margin: 10px 0;
   min-height: 70vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  position: sticky;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
 }
 
 .donate-button {
-  background-color: #007bff;
+  padding: 12px;
+  background-color: #11A0D4;
   color: white;
   border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 4px;
+  border-radius: 5px;
+  font-size: 14px;
   cursor: pointer;
+  margin-bottom: 15px;
+  transition: background-color 0.3s;
 }
 
 .donate-button:hover {
   background-color: #0056b3;
 }
 
+.message {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
 .filter {
   display: flex;
   align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
 }
 
 .filter-input {
-  padding: 8px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-left: 10px;
-}
-
-.message {
-  background-color: white;
-  padding: 20px;
-  text-align: center;
-  font-size: 18px;
-  color: #333;
-  margin-top: 20px;
-}
-
-#list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
   width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #333;
+  transition: border-color 0.3s;
 }
 
-app-clothing-item {
-  flex: 1 1 calc(33.33% - 20px);
-  box-sizing: border-box;
+.filter-input:focus {
+  border-color: #11A0D4;
+  outline: none;
 }
+
+
+
