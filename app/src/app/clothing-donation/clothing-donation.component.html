@@ -5,11 +5,6 @@
       <h2>Doe Sua Roupa</h2>
       <form (submit)="submitForm()">
         <div class="form-group">
-          <label for="photo">Foto</label>
-          <input type="file" id="photo" name="photo" (change)="onFileChange($event)" accept="image/*" required>
-        </div>
-
-        <div class="form-group">
           <label for="description">Descrição do Item</label>
           <textarea id="description" name="description" placeholder="Descrição do item" required></textarea>
         </div>
@@ -20,35 +15,29 @@
         </div>
 
         <div class="form-group">
-          <label for="size">Tamanho</label>
-          <select id="size" name="size" required>
-            <option value="">Selecione o tamanho</option>
-            <option value="P">P</option>
-            <option value="M">M</option>
-            <option value="G">G</option>
-            <option value="GG">GG</option>
-            <option value="Único">Único</option>
+          <label for="gender">Gênero</label>
+          <select id="gender" name="gender" required>
+            <option *ngFor="let option of genderOptions" [value]="option.value">
+              {{ option.label }}
+            </option>
           </select>
         </div>
 
         <div class="form-group">
-          <label for="gender">Gênero</label>
-          <select id="gender" name="gender" required>
-            <option value="">Selecione o gênero</option>
-            <option value="Masculino">Masculino</option>
-            <option value="Feminino">Feminino</option>
-            <option value="Unissex">Unissex</option>
+          <label for="size">Tamanho</label>
+          <select id="size" name="size" required>
+            <option *ngFor="let option of sizeOptions" [value]="option.value">
+              {{ option.label }}
+            </option>
           </select>
         </div>
 
         <div class="form-group">
           <label for="season">Estação</label>
           <select id="season" name="season" required>
-            <option value="">Selecione a estação</option>
-            <option value="Verão">Verão</option>
-            <option value="Outono">Outono</option>
-            <option value="Inverno">Inverno</option>
-            <option value="Primavera">Primavera</option>
+            <option *ngFor="let option of seasonOptions" [value]="option.value">
+              {{ option.label }}
+            </option>
           </select>
         </div>
 
