@@ -62,4 +62,11 @@ export class ClothingDonationComponent {
 
   }
 
+  formIsValid(): boolean {
+    const form = document.querySelector('form') as HTMLFormElement;
+    const submitButton = document.querySelector('button[type="submit"]') as HTMLButtonElement;
+    submitButton.disabled = !form.checkValidity();
+    return form.checkValidity();
+  }
+
 }
