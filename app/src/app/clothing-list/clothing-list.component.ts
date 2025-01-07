@@ -22,6 +22,7 @@ export class ClothingListComponent {
   ) {}
 
   clothingItems: ClothingItem[] = [];
+  showFilter: boolean = false;
 
   ngOnInit(): void {
     this.notificationService.showInfo('Carregando roupas...');
@@ -32,6 +33,10 @@ export class ClothingListComponent {
 
   goToDonate() {
     this.router.navigate(['donate']);
+  }
+
+  toggleFilter() {
+    this.showFilter = !this.showFilter;
   }
 
 }
