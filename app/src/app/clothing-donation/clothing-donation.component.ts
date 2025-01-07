@@ -5,6 +5,7 @@ import { GenderChoices, SeasonChoices, SizeChoices } from '../../enum/Clothing';
 import { ClothingItem } from '../../models/ClothingItem';
 import { ClothingItemService } from '../../service/clothing-item.service';
 import { LocalStorageService } from '../../service/local-storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-clothing-donation',
@@ -16,7 +17,8 @@ export class ClothingDonationComponent {
 
   constructor(
     private clothingItemService: ClothingItemService,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private router: Router
   ) {}
 
   genderOptions = [
@@ -55,7 +57,7 @@ export class ClothingDonationComponent {
     };
 
     this.clothingItemService.createClothingItem(clothingItem as ClothingItem).subscribe((clothing) => {
-      console.log('Clothing item created:', clothing);
+      this.router.navigate(['/clothing', clothing.id]);
     });
 
   }

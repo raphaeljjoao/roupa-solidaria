@@ -34,6 +34,35 @@ export class ClothingDetailsComponent {
     });
   }
 
+  public translateSize(size: SizeChoices): string {
+    const sizeTranslations: Record<SizeChoices, string> = {
+      [SizeChoices.Small]: 'Pequeno',
+      [SizeChoices.Medium]: 'Médio',
+      [SizeChoices.Large]: 'Grande',
+      [SizeChoices.ExtraLarge]: 'Extra Grande',
+    };
+    return sizeTranslations[size] || 'Tamanho não especificado';
+  }
+
+  public translateGender(gender: GenderChoices): string {
+    const genderTranslations: Record<GenderChoices, string> = {
+      [GenderChoices.Male]: 'Masculino',
+      [GenderChoices.Female]: 'Feminino',
+      [GenderChoices.Unisex]: 'Unissex',
+    };
+    return genderTranslations[gender] || 'Gênero não especificado';
+  }
+
+  public translateSeason(season: SeasonChoices): string {
+    const seasonTranslations: Record<SeasonChoices, string> = {
+      [SeasonChoices.Spring]: 'Primavera',
+      [SeasonChoices.Summer]: 'Verão',
+      [SeasonChoices.Fall]: 'Outono',
+      [SeasonChoices.Winter]: 'Inverno',
+    };
+    return seasonTranslations[season] || 'Estação não especificada';
+  }
+
   goBack() {
     this.router.navigate(['/list']);
   }
