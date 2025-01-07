@@ -1,0 +1,27 @@
+.error-container {
+  background-color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.error-image {
+  width: 150px;  /* Ajuste o tamanho da imagem conforme necessário */
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.error-message h1 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.error-message p {
+  font-size: 18px;
+  color: #666;
+}
