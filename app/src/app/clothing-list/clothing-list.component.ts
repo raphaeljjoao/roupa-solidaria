@@ -6,10 +6,11 @@ import { CommonModule } from '@angular/common';
 import { ClothingItemComponent } from '../shared/clothing-item/clothing-item.component';
 import { NotificationService } from '../../service/notification-service.service';
 import { Router } from '@angular/router';
+import { FilterOptionsComponent } from '../shared/filter-options/filter-options.component';
 
 @Component({
   selector: 'app-clothing-list',
-  imports: [CommonModule, NavbarComponent, ClothingItemComponent],
+  imports: [CommonModule, NavbarComponent, ClothingItemComponent, FilterOptionsComponent],
   templateUrl: './clothing-list.component.html',
   styleUrl: './clothing-list.component.scss'
 })

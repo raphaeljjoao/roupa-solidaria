@@ -1,0 +1,55 @@
+.filter-container {
+  padding: 1rem;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filter-group {
+  margin-bottom: 1rem;
+}
+
+.filter-group label {
+  margin-right: 10px;
+
+  &.title {
+  font-weight: 500;
+  }
+}
+
+.filter-options label {
+  display: inline-block;
+  margin-right: 15px;
+  font-size: 14px;
+}
+
+.filter-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.apply-btn, .clear-btn {
+  padding: 0.5rem 1rem;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.apply-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.clear-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.apply-btn:hover {
+  background-color: #45a049;
+}
+
+.clear-btn:hover {
+  background-color: #e53935;
+}

@@ -1,0 +1,55 @@
+<div class="filter-container">
+  <div class="filter-group">
+    <label>{{ 'Gênero' }}</label>
+    <div class="filter-options">
+      <div *ngFor="let gender of genderOptions">
+        <label>
+          <input
+            type="checkbox"
+            [checked]="selectedGender.includes(gender)"
+            (change)="onGenderChange(gender, $event)">
+          {{ gender | translateGender }}
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="filter-group">
+    <label>{{ 'Tamanho' }}</label>
+    <div class="filter-options">
+      <div *ngFor="let size of sizeOptions">
+        <label>
+          <input
+            type="checkbox"
+            [checked]="selectedSize.includes(size)"
+            (change)="onSizeChange(size, $event)">
+          {{ size | translateSize }}
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="filter-group">
+    <label>{{ 'Estação' }}</label>
+    <div class="filter-options">
+      <div *ngFor="let season of seasonOptions">
+        <label>
+          <input
+            type="checkbox"
+            [checked]="selectedSeason.includes(season)"
+            (change)="onSeasonChange(season, $event)">
+          {{ season | translateSeason }}
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="filter-actions">
+    <button class="apply-btn" (click)="applyFilters()">
+      <i class="fas fa-check"></i>
+    </button>
+    <button class="clear-btn" (click)="clearFilters()">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+</div>
