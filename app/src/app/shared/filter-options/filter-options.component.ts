@@ -61,11 +61,4 @@ export class FilterOptionsComponent {
     });
   }
 
-  clearFilters() {
-    this.selectedGender = [];
-    this.selectedSize = [];
-    this.selectedSeason = [];
-    this.applyFilters();
-  }
-
 }

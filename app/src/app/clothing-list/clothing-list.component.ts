@@ -8,6 +8,7 @@ import { NotificationService } from '../../service/notification-service.service'
 import { Router } from '@angular/router';
 import { FilterOptionsComponent } from '../shared/filter-options/filter-options.component';
 import { animate, style, transition, trigger } from '@angular/animations';
+import { GenderChoices, SeasonChoices, SizeChoices } from '../../enum/Clothing';
 
 @Component({
   selector: 'app-clothing-list',
@@ -37,12 +38,17 @@ export class ClothingListComponent {
   ) {}
 
   clothingItems: ClothingItem[] = [];
+  filteredClothingItems: ClothingItem[] = [];
   showFilter: boolean = false;
+
+  noItemsMessage = 'Não há itens disponíveis';
 
   ngOnInit(): void {
     this.notificationService.showInfo('Carregando roupas...');
     this.clothingItemService.getClothingItems().subscribe((items) => {
       this.clothingItems = items;
+      this.filteredClothingItems = items;
+      this.updateFilterMessage();
     });
   }
 
@@ -52,6 +58,36 @@ export class ClothingListComponent {
 
   toggleFilter() {
     this.showFilter = !this.showFilter;
+  }
+
+  onFiltersApplied(event: any){
+    const filters = event as {gender: GenderChoices[], size: SizeChoices[], season: SeasonChoices[]};
+
+    this.filteredClothingItems = this.clothingItems;
+
+    if (filters.gender.length != 0) {
+      this.filteredClothingItems = this.filteredClothingItems.filter(item => filters.gender.includes(item.gender));
+    }
+
+    if (filters.size.length != 0) {
+      this.filteredClothingItems = this.filteredClothingItems.filter(item => filters.size.includes(item.size));
+    }
+
+    if (filters.season.length != 0) {
+      this.filteredClothingItems = this.filteredClothingItems.filter(item => filters.season.includes(item.season));
+    }
+
+    this.updateFilterMessage();
+  }
+
+  updateFilterMessage() {
+    if (this.clothingItems.length === 0) {
+      this.noItemsMessage = 'Não há itens disponíveis';
+    } else if (this.filteredClothingItems.length === 0) {
+      this.noItemsMessage = 'Não há itens disponíveis para os filtros selecionados';
+    } else {
+      this.noItemsMessage = '';
+    }
   }
 
 }

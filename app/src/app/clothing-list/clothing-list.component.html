@@ -6,17 +6,15 @@
         <button class="button" (click)="goToDonate()">Doar Roupa</button>
         <div class="filter">
           <button class="button" (click)="toggleFilter()">Filtrar</button>
-          <app-filter-options *ngIf="showFilter" [@filterAnimation]></app-filter-options>
+          <app-filter-options *ngIf="showFilter" (filtersApplied)="onFiltersApplied($event)" [@filterAnimation]></app-filter-options>
         </div>
       </div>
 
       <div id="list">
-        <app-clothing-item *ngFor="let clothingItem of clothingItems" [clothingItem]="clothingItem"></app-clothing-item>
+        <app-clothing-item *ngFor="let clothingItem of filteredClothingItems" [clothingItem]="clothingItem"></app-clothing-item>
       </div>
 
-      <div *ngIf="clothingItems.length == 0" class="message">
-        Não há itens disponíveis
-      </div>
+      <div *ngIf="filteredClothingItems.length == 0 || clothingItems.length == 0" class="message">{{ noItemsMessage }}</div>
 
     </div>
   </div>
