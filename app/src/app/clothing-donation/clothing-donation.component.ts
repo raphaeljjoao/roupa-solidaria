@@ -7,6 +7,7 @@ import { ClothingItemService } from '../../service/clothing-item.service';
 import { LocalStorageService } from '../../service/local-storage.service';
 import { Router } from '@angular/router';
 import { SharedPipesModule } from '../../pipes/shared-pipes.module';
+import { getEnumValues } from '../../enum/enum-helper';
 
 @Component({
   selector: 'app-clothing-donation',
@@ -22,13 +23,9 @@ export class ClothingDonationComponent {
     private router: Router
   ) {}
 
-  genderOptions = this.getEnumValues(GenderChoices);
-  sizeOptions = this.getEnumValues(SizeChoices);
-  seasonOptions = this.getEnumValues(SeasonChoices);
-
-  getEnumValues(enumType: any): any[] {
-    return Object.values(enumType);
-  }
+  genderOptions = getEnumValues(GenderChoices);
+  sizeOptions = getEnumValues(SizeChoices);
+  seasonOptions = getEnumValues(SeasonChoices);
 
   submitForm(event: Event) {
     event.preventDefault();
