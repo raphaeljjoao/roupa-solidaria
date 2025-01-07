@@ -31,6 +31,11 @@ export class ClothingDetailsComponent {
     this.clothingItemService.getClothingItemById(this.clothingId).subscribe((clothingItem: ClothingItem) => {
       this.clothingItem = clothingItem;
       this.notificationService.showSuccess(`Detalhes da roupa encontrados com sucesso!`);
+    }, (error) => {
+      this.notificationService.showError(`Erro ao buscar detalhes da roupa ${this.clothingId}`);
+      setTimeout(() => {
+        this.router.navigate(['/404']);
+      }, 1000);
     });
   }
 
