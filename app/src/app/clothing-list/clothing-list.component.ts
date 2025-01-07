@@ -26,7 +26,7 @@ export class ClothingListComponent {
   ngOnInit(): void {
     this.notificationService.showInfo('Carregando roupas...');
     this.clothingItemService.getClothingItems().subscribe((items) => {
-      this.clothingItems = items.concat(items, items, items, items);
+      this.clothingItems = items;
     });
   }
 
