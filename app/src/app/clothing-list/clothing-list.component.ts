@@ -7,12 +7,26 @@ import { ClothingItemComponent } from '../shared/clothing-item/clothing-item.com
 import { NotificationService } from '../../service/notification-service.service';
 import { Router } from '@angular/router';
 import { FilterOptionsComponent } from '../shared/filter-options/filter-options.component';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-clothing-list',
   imports: [CommonModule, NavbarComponent, ClothingItemComponent, FilterOptionsComponent],
   templateUrl: './clothing-list.component.html',
-  styleUrl: './clothing-list.component.scss'
+  styleUrl: './clothing-list.component.scss',
+  animations: [
+    trigger('filterAnimation', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateY(-10px)' }),
+        animate('0.3s ease', style({ opacity: 1, transform: 'translateY(0)' }))
+      ]),
+      transition(':leave', [
+        style({ opacity: 1, transform: 'translateY(0)' }),
+        animate('0.3s ease', style({ opacity: 0, transform: 'translateY(-10px)' }))
+      ])
+    ])
+  ]
+
 })
 export class ClothingListComponent {
 

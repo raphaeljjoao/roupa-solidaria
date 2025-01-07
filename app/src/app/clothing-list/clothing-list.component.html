@@ -6,7 +6,7 @@
         <button class="button" (click)="goToDonate()">Doar Roupa</button>
         <div class="filter">
           <button class="button" (click)="toggleFilter()">Filtrar</button>
-          <app-filter-options *ngIf="showFilter"></app-filter-options>
+          <app-filter-options *ngIf="showFilter" [@filterAnimation]></app-filter-options>
         </div>
       </div>
 
