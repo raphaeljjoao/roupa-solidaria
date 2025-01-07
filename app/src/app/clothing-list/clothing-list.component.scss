@@ -29,6 +29,7 @@
     font-size: 14px;
     cursor: pointer;
     transition: background-color 0.3s;
+    height: 40px;
   }
 
   .button:hover {
@@ -56,6 +57,14 @@
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
+}
+
+.filter {
+  display: flex;
+
+  .button {
+    margin-right: 10px;
+  }
 }
 
 

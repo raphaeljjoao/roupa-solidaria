@@ -4,8 +4,10 @@
     <div class="clothing-list">
       <div class="header">
         <button class="button" (click)="goToDonate()">Doar Roupa</button>
-        <button class="button" (click)="toggleFilter()">Filtrar</button>
-        <app-filter-options *ngIf="showFilter"></app-filter-options>
+        <div class="filter">
+          <button class="button" (click)="toggleFilter()">Filtrar</button>
+          <app-filter-options *ngIf="showFilter"></app-filter-options>
+        </div>
       </div>
 
       <div id="list">
