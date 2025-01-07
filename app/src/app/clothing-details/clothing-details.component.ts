@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NavbarComponent } from '../app/shared/navbar/navbar.component';
-import { ClothingItem } from '../models/ClothingItem';
-import { ClothingItemService } from '../service/clothing-item.service';
-import { GenderChoices, SeasonChoices, SizeChoices } from '../enum/Clothing';
-import { NotificationService } from '../service/notification-service.service';
+import { NavbarComponent } from '../shared/navbar/navbar.component';
+import { ClothingItem } from '../../models/ClothingItem';
+import { ClothingItemService } from '../../service/clothing-item.service';
+import { GenderChoices, SeasonChoices, SizeChoices } from '../../enum/Clothing';
+import { NotificationService } from '../../service/notification-service.service';
 
 @Component({
   selector: 'app-clothing-details',
