@@ -13,15 +13,15 @@
       </div>
       <div class="details-group" *ngIf="clothingItem?.size">
         <label>Tamanho:</label>
-        <p>{{ translateSize(clothingItem.size) }}</p>
+        <p>{{ clothingItem.size | translateSize }}</p>
       </div>
       <div class="details-group" *ngIf="clothingItem?.gender">
         <label>Gênero:</label>
-        <p>{{ translateGender(clothingItem.gender) }}</p>
+        <p>{{ clothingItem.gender | translateGender }}</p>
       </div>
       <div class="details-group" *ngIf="clothingItem?.season">
         <label>Estação:</label>
-        <p>{{ translateSeason(clothingItem.season) }}</p>
+        <p>{{ clothingItem.season | translateSeason }}</p>
       </div>
       <button class="back-button" (click)="goBack()">Voltar</button>
     </div>

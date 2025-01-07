@@ -6,10 +6,11 @@ import { ClothingItem } from '../../models/ClothingItem';
 import { ClothingItemService } from '../../service/clothing-item.service';
 import { LocalStorageService } from '../../service/local-storage.service';
 import { Router } from '@angular/router';
+import { SharedPipesModule } from '../../pipes/shared-pipes.module';
 
 @Component({
   selector: 'app-clothing-donation',
-  imports: [CommonModule, NavbarComponent],
+  imports: [CommonModule, NavbarComponent, SharedPipesModule],
   templateUrl: './clothing-donation.component.html',
   styleUrl: './clothing-donation.component.scss'
 })
@@ -21,25 +22,13 @@ export class ClothingDonationComponent {
     private router: Router
   ) {}
 
-  genderOptions = [
-    { value: GenderChoices.Male, label: 'Masculino' },
-    { value: GenderChoices.Female, label: 'Feminino' },
-    { value: GenderChoices.Unisex, label: 'Unissex' },
-  ];
+  genderOptions = this.getEnumValues(GenderChoices);
+  sizeOptions = this.getEnumValues(SizeChoices);
+  seasonOptions = this.getEnumValues(SeasonChoices);
 
-  sizeOptions = [
-    { value: SizeChoices.Small, label: 'P' },
-    { value: SizeChoices.Medium, label: 'M' },
-    { value: SizeChoices.Large, label: 'G' },
-    { value: SizeChoices.ExtraLarge, label: 'GG' },
-  ];
-
-  seasonOptions = [
-    { value: SeasonChoices.Spring, label: 'Primavera' },
-    { value: SeasonChoices.Summer, label: 'Verão' },
-    { value: SeasonChoices.Fall, label: 'Outono' },
-    { value: SeasonChoices.Winter, label: 'Inverno' },
-  ];
+  getEnumValues(enumType: any): any[] {
+    return Object.values(enumType);
+  }
 
   submitForm(event: Event) {
     event.preventDefault();

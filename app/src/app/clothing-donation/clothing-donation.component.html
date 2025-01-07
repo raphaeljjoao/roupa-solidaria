@@ -17,8 +17,8 @@
         <div class="form-group">
           <label for="gender">Gênero</label>
           <select id="gender" name="gender" required>
-            <option *ngFor="let option of genderOptions" [value]="option.value">
-              {{ option.label }}
+            <option *ngFor="let option of genderOptions" [value]="option">
+              {{ option | translateGender }}
             </option>
           </select>
         </div>
@@ -26,8 +26,8 @@
         <div class="form-group">
           <label for="size">Tamanho</label>
           <select id="size" name="size" required>
-            <option *ngFor="let option of sizeOptions" [value]="option.value">
-              {{ option.label }}
+            <option *ngFor="let option of sizeOptions" [value]="option">
+              {{ option | translateSize }}
             </option>
           </select>
         </div>
@@ -35,8 +35,8 @@
         <div class="form-group">
           <label for="season">Estação</label>
           <select id="season" name="season" required>
-            <option *ngFor="let option of seasonOptions" [value]="option.value">
-              {{ option.label }}
+            <option *ngFor="let option of seasonOptions" [value]="option">
+              {{ option | translateSeason }}
             </option>
           </select>
         </div>
