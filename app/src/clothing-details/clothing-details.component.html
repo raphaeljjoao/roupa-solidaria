@@ -1,0 +1,29 @@
+<div class="container">
+  <app-navbar></app-navbar>
+  <div class="inner-container">
+    <div class="details-card">
+      <h2>Detalhes da Roupa</h2>
+      <div class="details-group" *ngIf="clothingItem?.description">
+        <label>Descrição:</label>
+        <p>{{ clothingItem.description }}</p>
+      </div>
+      <div class="details-group" *ngIf="clothingItem?.color">
+        <label>Cor:</label>
+        <p>{{ clothingItem.color }}</p>
+      </div>
+      <div class="details-group" *ngIf="clothingItem?.size">
+        <label>Tamanho:</label>
+        <p>{{ clothingItem.size }}</p>
+      </div>
+      <div class="details-group" *ngIf="clothingItem?.gender">
+        <label>Gênero:</label>
+        <p>{{ clothingItem.gender }}</p>
+      </div>
+      <div class="details-group" *ngIf="clothingItem?.season">
+        <label>Estação:</label>
+        <p>{{ clothingItem.season }}</p>
+      </div>
+      <button class="back-button" (click)="goBack()">Voltar</button>
+    </div>
+  </div>
+</div>
