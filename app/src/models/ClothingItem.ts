@@ -1,9 +1,8 @@
 import { GenderChoices, SeasonChoices, SizeChoices } from "../enum/Clothing";
 import { BaseModel } from "./BaseModel";
-import { User } from "./User";
 
 export class ClothingItem extends BaseModel {
-  donor: User;
+  donor_id: number;
   description: string;
   color: string;
   gender: GenderChoices;
@@ -14,7 +13,7 @@ export class ClothingItem extends BaseModel {
     id: number,
     createdAt: Date,
     updatedAt: Date,
-    donor: User,
+    donorId: number,
     description: string,
     color: string,
     gender: GenderChoices,
@@ -25,7 +24,7 @@ export class ClothingItem extends BaseModel {
     this.id = id;
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
-    this.donor = donor;
+    this.donor_id = donorId;
     this.description = description;
     this.color = color;
     this.gender = gender;

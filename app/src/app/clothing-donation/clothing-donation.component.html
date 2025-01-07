@@ -3,7 +3,7 @@
   <div class="inner-container">
     <div class="donation-form">
       <h2>Doe Sua Roupa</h2>
-      <form (submit)="submitForm()">
+      <form (submit)="submitForm($event)" method="post">
         <div class="form-group">
           <label for="description">Descrição do Item</label>
           <textarea id="description" name="description" placeholder="Descrição do item" required></textarea>

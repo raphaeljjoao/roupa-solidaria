@@ -43,6 +43,7 @@ class ClothingItemView(APIView):
     def post(self, request):
         try:
             data = request.data
+            print(data)
             clothing_item = ClothingItem.objects.create(
                 donor_id_id=data['donor_id'],
                 # photo=data.get('photo').encode('utf-8') if data.get('photo') else None,

@@ -2,6 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { NavbarComponent } from '../shared/navbar/navbar.component';
 import { GenderChoices, SeasonChoices, SizeChoices } from '../../enum/Clothing';
+import { ClothingItem } from '../../models/ClothingItem';
+import { ClothingItemService } from '../../service/clothing-item.service';
+import { LocalStorageService } from '../../service/local-storage.service';
 
 @Component({
   selector: 'app-clothing-donation',
@@ -10,6 +13,11 @@ import { GenderChoices, SeasonChoices, SizeChoices } from '../../enum/Clothing';
   styleUrl: './clothing-donation.component.scss'
 })
 export class ClothingDonationComponent {
+
+  constructor(
+    private clothingItemService: ClothingItemService,
+    private localStorageService: LocalStorageService
+  ) {}
 
   genderOptions = [
     { value: GenderChoices.Male, label: 'Masculino' },
@@ -31,7 +39,24 @@ export class ClothingDonationComponent {
     { value: SeasonChoices.Winter, label: 'Inverno' },
   ];
 
-  submitForm() {
+  submitForm(event: Event) {
+    event.preventDefault();
+
+    const form = document.querySelector('form') as HTMLFormElement;
+    const formData = new FormData(form);
+
+    const clothingItem: Partial<ClothingItem> = {
+      description: formData.get('description') as string,
+      color: formData.get('color') as string,
+      gender: formData.get('gender') as GenderChoices,
+      size: formData.get('size') as SizeChoices,
+      season: formData.get('season') as SeasonChoices,
+      donor_id: this.localStorageService.getLoggedUserId() as number,
+    };
+
+    this.clothingItemService.createClothingItem(clothingItem as ClothingItem).subscribe((clothing) => {
+      console.log('Clothing item created:', clothing);
+    });
 
   }
 
