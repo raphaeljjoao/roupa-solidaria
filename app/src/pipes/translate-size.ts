@@ -7,10 +7,10 @@ import { SizeChoices } from '../enum/Clothing';
 export class TranslateSizePipe implements PipeTransform {
   transform(size: SizeChoices): string {
     const sizeTranslations: Record<SizeChoices, string> = {
-      [SizeChoices.Small]: 'Pequeno',
-      [SizeChoices.Medium]: 'Médio',
-      [SizeChoices.Large]: 'Grande',
-      [SizeChoices.ExtraLarge]: 'Extra Grande',
+      [SizeChoices.Small]: 'P',
+      [SizeChoices.Medium]: 'M',
+      [SizeChoices.Large]: 'G',
+      [SizeChoices.ExtraLarge]: 'GG',
     };
     return sizeTranslations[size] || 'Tamanho não especificado';
   }
